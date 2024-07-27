@@ -1,0 +1,99 @@
+*{
+    
+    box-sizing: border-box;
+}
+html, body{
+    /* becuse i don't want a scroll bar in my page. */
+    overflow-x: hidden;
+    height: 100vh;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#fff;
+    padding:0;
+    margin:0;
+    font-size:15px;
+}
+.header{
+    /* our navbar whose color is orange and width=100% covers complete lenght of screen
+    whith hieght=60px  and positon ficxed means like floating item.*/
+    background:rgb(230, 98, 32);
+    width:100vw;
+    height:4em;
+    position:fixed;
+    /* z-index above screen like a 3D  */
+    z-index:1;
+}
+
+.main{
+    height: 100%;
+    margin-top:60px;
+    padding: 10px 50px;
+}
+
+#sidebarmenu{
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    width:250px;
+    margin-top:60px;
+    background:rgb(230, 98, 32);;
+    transform:translateX(-250px);
+    transition: transform 250ms ease-in-out;
+}
+.menu{
+    list-style: none;
+    padding:0;
+    margin: 0;
+}
+.menu li{
+    color: white;
+   border-bottom:1px solid rgba(221, 221, 232, 0.491) ;
+}
+.menu li a{
+    color: white;
+    display:block;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding:20px;
+}
+a:hover{
+   background-color:rgb(191, 175, 166);
+   opacity:0.7;
+   color: black;
+}
+#opensidebar:checked ~ #sidebarmenu{
+    transform:translateX(0px);
+}
+
+.sidebar_icon{
+    /* background-color: white; */
+    width:22px;
+    height:22px;
+    position:absolute;
+    z-index:2;
+    top:22px;
+    left:15px;
+    cursor:pointer;
+}
+.sidebar_icon .spinner{
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s;
+}
+.spinner.middle,
+.spinner.end{
+    margin-top: 3px;
+}
+#opensidebar:checked ~ .sidebar_icon > .spinner.middle{
+    opacity:0;
+}
+#opensidebar:checked ~ .sidebar_icon > .spinner.top{
+   transform:rotate(135deg) ;
+   margin-top:8px;
+}
+#opensidebar:checked ~ .sidebar_icon > .spinner.end{
+    transform:rotate(-135deg) ;
+    margin-top:-9px;
+}
